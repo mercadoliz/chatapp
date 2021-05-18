@@ -1,17 +1,17 @@
-import React from "react";
+import { setStatusBarBackgroundColor } from "expo-status-bar";
+import React, { Component } from "react";
 import {
+  StyleSheet,
+  ImageBackground,
   View,
   Text,
-  Button,
   TextInput,
-  ImageBackground,
-  StyleSheet,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const image = require("../assets/Background-Image.png");
 
-export default class Screen1 extends React.Component {
+export default class Start extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +19,7 @@ export default class Screen1 extends React.Component {
       color: "",
     };
   }
+
   render() {
     return (
       <ImageBackground source={image} style={styles.image}>
@@ -29,10 +30,10 @@ export default class Screen1 extends React.Component {
           <View style={styles.box1}>
             <View style={styles.nameBox}>
               <TextInput
-                style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+                style={styles.yourName}
                 onChangeText={(name) => this.setState({ name })}
                 value={this.state.name}
-                placeholder="Type your name"
+                placeholder="Enter Your Name"
               />
             </View>
             <View style={styles.backColorTextBox}>
@@ -74,7 +75,7 @@ export default class Screen1 extends React.Component {
               }
             >
               <Text style={styles.buttonText}>Start Chatting</Text>
-            </TouchableOpacity>
+                    </TouchableOpacity>
           </View>
         </View>
       </ImageBackground>
@@ -102,6 +103,40 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
     marginBottom: 10,
+  },
+  box1: {
+    flexDirection: "column",
+    position: "relative",
+    marginTop: 10,
+    marginRight: "auto",
+    marginLeft: "auto",
+    width: "88%",
+    height: "44%",
+    backgroundColor: "white",
+    justifyContent: "space-between",
+    paddingTop: 20,
+    paddingBottom: 20,
+  },
+  nameBox: {
+    flexDirection: "column",
+    position: "relative",
+    marginTop: 10,
+    marginBottom: 10,
+    marginRight: "auto",
+    marginLeft: "auto",
+    width: "88%",
+    borderWidth: 2,
+    borderRadius: 3,
+    borderColor: "#757083",
+  },
+  yourName: {
+    fontSize: 16,
+    fontWeight: "300",
+    color: "#757083",
+    opacity: 50,
+    width: "100%",
+    height: 50,
+    marginBottom: "auto",
   },
   backColorTextBox: {
     flexDirection: "row",
@@ -175,17 +210,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "#FFFFFF",
-  },
-  nameBox: {
-    flexDirection: "column",
-    position: "relative",
-    marginTop: 10,
-    marginBottom: 10,
-    marginRight: "auto",
-    marginLeft: "auto",
-    width: "88%",
-    borderWidth: 2,
-    borderRadius: 3,
-    borderColor: "#757083",
   },
 });
