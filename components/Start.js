@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const image = require("../assets/Background-Image.png");
+const image = require("../assets/BackgroundImage.png");
 
 export default class Start extends React.Component {
   constructor(props) {
