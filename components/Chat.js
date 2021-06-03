@@ -2,9 +2,15 @@
 import React, { Component } from "react";
 //import relevant components from react native
 import NetInfo from "@react-native-community/netinfo";
-import { StyleSheet, Text, View, Platform, AsyncStorage } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Platform,
+  AsyncStorage,
+  KeyboardAvoidingView,
+} from "react-native";
 import { GiftedChat, InputToolbar } from "react-native-gifted-chat";
-import KeyboardSpacer from "react-native-keyboard-spacer";
 //import custom CustomActions
 import CustomActions from "./CustomActions";
 //import MapView
@@ -40,7 +46,7 @@ export default class Chat extends Component {
         storageBucket: "chatapp-47a59.appspot.com",
         messagingSenderId: "1009838241316",
         appId: "1:1009838241316:web:06414d17c925c6f8bc0ab1",
-        measurementId: "G-Z283FXF5MG"
+        measurementId: "G-Z283FXF5MG",
       });
     }
 
@@ -310,13 +316,13 @@ export default class Chat extends Component {
 
   //render components
   render() {
-    let color= this.props.route.params.color;
+    let color = this.props.route.params.color;
     return (
       //fullscreen component
       <View
         style={{
           flex: 1,
-          backgroundColor:color,
+          backgroundColor: color,
         }}
       >
         <GiftedChat
@@ -330,13 +336,12 @@ export default class Chat extends Component {
             _id: this.state.uid,
           }}
         />
-        {Platform.OS === "android" ? <KeyboardSpacer /> : null}
+        {Platform.OS === "android" ? (
+          <KeyboardAvoidingView behavior="height" />
+        ) : null}
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({});
-
-
-
